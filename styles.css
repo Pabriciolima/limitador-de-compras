@@ -1,0 +1,157 @@
+/* styles.css */
+:root {
+  /* Tema Escuro (Padrão) */
+  --bg-color: linear-gradient(135deg, #020f20, #036168);
+  --container-bg: rgba(14, 1, 1, 0.1);
+  --text-color: #fff;
+  --input-bg: rgba(255, 255, 255, 0.2);
+  --button-bg: #ff6f61;
+  --button-hover: #ff4d4d;
+
+  /* Tema Claro */
+  --light-bg-color: #f9f9f9;
+  --light-container-bg: #ffffff;
+  --light-text-color: #333;
+  --light-input-bg: #f0f0f0;
+  --light-button-bg: #4caf50;
+  --light-button-hover: #43a047;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  position: relative; /* Para posicionar o botão no canto */
+}
+.mode-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.mode-button:hover {
+  transform: scale(1.1);
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-color);
+  transition: all 0.3s ease;
+}
+.hidden {
+  display: none;
+}
+
+.container {
+  background: var(--container-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  width: 350px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.mode-button {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.mode-button:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  background: var(--input-bg);
+}
+
+button#calcular {
+  margin-top: 25px;
+  padding: 12px 20px;
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button#calcular:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
+
+.resultado {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.resultado p {
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.resultado p span {
+  font-weight: bold;
+  color: var(--text-color);
+}
