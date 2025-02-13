@@ -27,20 +27,29 @@
 
   <div class="container">
     <h1>Calculadora de Meta</h1>
-
-    <label for="meta">Meta:</label>
-    <input type="number" id="meta" placeholder="Insira a meta">
-
-    <label for="realizado">Valor Realizado:</label>
-    <input type="number" id="realizado" placeholder="Insira o valor realizado">
-
+  
+    <label for="meta">Meta (R$):</label>
+    <input type="text" id="meta" placeholder="Insira a meta" oninput="formatCurrency(this)" />
+  
+    <label for="realizado">Valor Realizado (R$):</label>
+    <input type="text" id="realizado" placeholder="Insira o valor realizado" oninput="formatCurrency(this)" />
+  
     <button id="calcular">Calcular</button>
-
+  
     <div class="resultado">
       <p>Porcentagem atingida: <span id="porcentagem">--%</span></p>
       <p>Disponível para compra: <span id="disponivel">R$ --</span></p>
     </div>
+  
+    <!-- Mensagem de Parabéns -->
+    <div id="parabens" class="hidden">
+      <p>🎉 🎉 <strong>Parabéns!</strong> Você bateu sua meta! 🏆 🎉</p>
+    </div>
   </div>
+  
+  <footer class="footer">
+    Criado por Pabricio Lima &reg; 2025
+  </footer>
 
   <script src="script.js"></script>
 </body>

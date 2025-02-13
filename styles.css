@@ -23,12 +23,13 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   color: var(--text-color);
   transition: all 0.3s ease;
-  position: relative; /* Para posicionar o botão no canto */
+  position: relative; /* Para posicionar o footer */
 }
 .mode-button {
   position: absolute;
@@ -114,6 +115,7 @@ input {
   background: var(--input-bg);
   color: var(--text-color);
   font-size: 16px;
+  text-align: right; /* Alinhar o texto à direita */
   transition: background 0.3s ease;
 }
 
@@ -154,4 +156,57 @@ button#calcular:hover {
 .resultado p span {
   font-weight: bold;
   color: var(--text-color);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* styles.css */
+
+/* styles.css */
+
+#parabens {
+  margin-top: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, #ff6f61, #ff4d4d);
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: none; /* Oculto por padrão */
+  animation: fadeIn 1s ease-in-out;
+}
+
+#parabens p {
+  margin: 0;
+  font-weight: bold;
+}
+
+#parabens strong {
+  font-size: 20px;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hidden {
+  display: none;
 }

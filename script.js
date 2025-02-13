@@ -1,18 +1,54 @@
 // script.js
-document.getElementById('calcular').addEventListener('click', function () {
-    const meta = parseFloat(document.getElementById('meta').value);
-    const realizado = parseFloat(document.getElementById('realizado').value);
+
+// Função para formatar o valor como moeda brasileira (R$)
+function formatCurrency(input) {
+    
+    // Substitui vírgulas por pontos para facilitar o cálculo
+    value = value.replace(',', '.');
   
+    // Converte para número e formata como moeda brasileira
+    const numericValue = parseFloat(value);
+    if (!isNaN(numericValue)) {
+      input.value = numericValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    } else {
+      input.value = ''; // Limpa o campo se o valor for inválido
+    }
+  }
+  
+  document.getElementById('calcular').addEventListener('click', function () {
+    // Obter os valores inseridos pelo usuário
+    const metaInput = document.getElementById('meta').value.replace('R$', '').trim().replace(/\./g, '').replace(',', '.');
+    const realizadoInput = document.getElementById('realizado').value.replace('R$', '').trim().replace(/\./g, '').replace(',', '.');
+  
+    // Converter os valores para números
+    const meta = parseFloat(metaInput);
+    const realizado = parseFloat(realizadoInput);
+  
+    // Verificar se os valores são válidos
     if (isNaN(meta) || isNaN(realizado) || meta <= 0) {
       alert('Por favor, insira valores válidos para a meta e o valor realizado.');
       return;
     }
   
+    // Calcular a porcentagem atingida
     const porcentagemAtingida = (realizado / meta) * 100;
+  
+    // Calcular o valor disponível para compra
     const disponivelParaCompra = meta - realizado;
   
+    // Atualizar o resultado na página
     document.getElementById('porcentagem').textContent = `${porcentagemAtingida.toFixed(2)}%`;
-    document.getElementById('disponivel').textContent = `R$ ${disponivelParaCompra.toFixed(2)}`;
+    document.getElementById('disponivel').textContent = `R$ ${disponivelParaCompra.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+  
+    // Exibir mensagem de parabéns se a meta for atingida
+    const parabensDiv = document.getElementById('parabens');
+    if (porcentagemAtingida >= 100) {
+      parabensDiv.classList.remove('hidden'); // Mostra a mensagem
+      parabensDiv.style.display = 'block'; // Garante que está visível
+    } else {
+      parabensDiv.classList.add('hidden'); // Oculta a mensagem
+      parabensDiv.style.display = 'none';
+    }
   });
   
   // Alternância de Modo
